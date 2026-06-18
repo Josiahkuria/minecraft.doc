@@ -1,0 +1,16 @@
+services:
+  luanti:
+    image: lscr.io/linuxserver/luanti:latest
+    container_name: luanti-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    ports:
+      - "30000:30000/udp"
+    volumes:
+      - luanti_data:/config
+    restart: unless-stopped
+
+volumes:
+  luanti_data:
